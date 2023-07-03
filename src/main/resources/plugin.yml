@@ -1,0 +1,5 @@
+name: ArmorEffects
+version: '${project.version}'
+main: axeltwc.armoreffects.ArmorEffects
+api-version: '1.19'
+author: AxelTWC

@@ -1,0 +1,5 @@
+name: ArmorEffects
+version: '1.0-SNAPSHOT'
+main: axeltwc.armoreffects.ArmorEffects
+api-version: '1.19'
+author: AxelTWC
