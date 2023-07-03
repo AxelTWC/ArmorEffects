@@ -2,6 +2,9 @@
 A Custom Simple Spigot Plugin for the Official Humblex Minecraft Server
 # IP:
 Coming Soon. (Release Late Aug to Early Sept 2023)
+# Plugin Version:
+Native: 1.19.4
+
 # Effects upon wearing full armor sets:
 
 Leather Armor
