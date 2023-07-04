@@ -5,7 +5,7 @@ Coming Soon. (Release Late Aug to Early Sept 2023)
 # Plugin Version:
 Native: 1.19.4
 
-# Effects upon wearing full armor sets:
+# Effects upon wearing full armor sets (Potion effects: 1 day duration):
 
 Leather Armor
 - Speed 3

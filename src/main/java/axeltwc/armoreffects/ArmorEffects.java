@@ -27,8 +27,8 @@ public class ArmorEffects extends JavaPlugin implements Listener {
         // Check if the player is wearing full leather armor
         if (isWearingFullLeatherArmor(player)) {
             // Give the player effects with infinite duration
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 86400, 2));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 86400, 0));
         } else {
             // Remove the effects
             player.removePotionEffect(PotionEffectType.SPEED);
@@ -37,8 +37,8 @@ public class ArmorEffects extends JavaPlugin implements Listener {
         // Check if the player is wearing full Chain armor
         if (isWearingFullChainArmor(player)) {
             // Give the player effects with infinite duration
-            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Integer.MAX_VALUE, 0));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 0));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 86400, 0));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 86400, 0));
         } else {
             // Remove the effects
             player.removePotionEffect(PotionEffectType.REGENERATION);
@@ -47,8 +47,8 @@ public class ArmorEffects extends JavaPlugin implements Listener {
         // Check if the player is wearing full Gold armor
         if (isWearingFullGoldArmor(player)) {
             // Give the player effects with infinite duration
-            player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, Integer.MAX_VALUE, 4));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 0));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 86400, 4));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 86400, 0));
         } else {
             // Remove the effects
             player.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
@@ -57,7 +57,7 @@ public class ArmorEffects extends JavaPlugin implements Listener {
         // Check if the player is wearing full Iron armor
         if (isWearingFullIronArmor(player)) {
             // Give the player effects with infinite duration
-            player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 86400, 0));
         } else {
             // Remove the effects
             player.removePotionEffect(PotionEffectType.FAST_DIGGING);
