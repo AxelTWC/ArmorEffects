@@ -12,8 +12,8 @@ Leather Armor
 - Strength 1
 
 Chain Armor:
-- Regen 2
-- Absorption 2
+- Regen 1
+- Absorption 1
 - Water Breathing 1
 
 Gold Armor:
