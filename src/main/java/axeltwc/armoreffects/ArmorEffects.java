@@ -38,12 +38,10 @@ public class ArmorEffects extends JavaPlugin implements Listener {
         if (isWearingFullChainArmor(player)) {
             // Give the player effects with infinite duration
             player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Integer.MAX_VALUE, 0));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, Integer.MAX_VALUE, 0));
             player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 0));
         } else {
             // Remove the effects
             player.removePotionEffect(PotionEffectType.REGENERATION);
-            player.removePotionEffect(PotionEffectType.ABSORPTION);
             player.removePotionEffect(PotionEffectType.WATER_BREATHING);
         }
         // Check if the player is wearing full Gold armor

@@ -13,7 +13,6 @@ Leather Armor
 
 Chain Armor:
 - Regen 1
-- Absorption 1
 - Water Breathing 1
 
 Gold Armor:
