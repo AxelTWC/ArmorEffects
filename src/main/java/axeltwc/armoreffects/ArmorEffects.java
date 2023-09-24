@@ -9,8 +9,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.Potion;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
 
 public class ArmorEffects extends JavaPlugin implements Listener {
 
@@ -25,25 +27,34 @@ public class ArmorEffects extends JavaPlugin implements Listener {
 
         checkArmor(player);
     }
+
     private void checkArmor(Player player) {
         // Check if the player is wearing full leather armor
         if (isWearingFullLeatherArmor(player)) {
             // Give the player effects with infinite duration
             ItemStack helmet = new ItemStack(Material.LEATHER_HELMET,1);
             LeatherArmorMeta meta = (LeatherArmorMeta) helmet.getItemMeta();
-            if(isWearingCustomArmor(player) == false){
-
-                player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1728000, 2));
-                player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1728000, 0));
+            if (isWearingEmeraldArmor(player) == true && checkLeatherArmorName(player) == false) {
+                player.addPotionEffect(new PotionEffect(PotionEffectType.LUCK, 1728000,0));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 1728000 , 0));
             }
-            else{
+            if (checkLeatherArmorName(player) == true && isWearingEmeraldArmor(player) == false){
+                player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1728000, 0));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1728000, 0));
+            }
+            if (checkLeatherArmorName(player) == false && isWearingEmeraldArmor(player) == false){ //Conditional Case for if player change Leather Armor name or Emerald Armor name to something else
                 player.removePotionEffect(PotionEffectType.SPEED);
                 player.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
+                player.removePotionEffect(PotionEffectType.LUCK);
+                player.addPotionEffect(new PotionEffect(PotionEffectType.LUCK, 1728000,0));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 1728000 , 0));
             }
         } else {
             // Remove the effects
             player.removePotionEffect(PotionEffectType.SPEED);
             player.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
+            player.removePotionEffect(PotionEffectType.LUCK);
+            player.removePotionEffect(PotionEffectType.DOLPHINS_GRACE);
         }
         // Check if the player is wearing full Chain armor
         if (isWearingFullChainArmor(player)) {
@@ -75,18 +86,41 @@ public class ArmorEffects extends JavaPlugin implements Listener {
         }
     }
 
-    private boolean isWearingCustomArmor(Player player) {
+    private boolean isWearingEmeraldArmor(Player player) {
         ItemStack helmet = player.getInventory().getHelmet();
         ItemStack chestplate = player.getInventory().getChestplate();
         ItemStack leggings = player.getInventory().getLeggings();
         ItemStack boots = player.getInventory().getBoots();
 
-        // Define the names of your custom armor items
         String customHelmetName = "§fEmerald Helmet";
         String customChestplateName = "§fEmerald Chestplate";
         String customLeggingsName = "§fEmerald Leggings";
         String customBootsName = "§fEmerald Boots";
 
+        // Check if all armor pieces have the expected custom names
+        boolean hasCustomHelmet = helmet != null && helmet.hasItemMeta() && helmet.getItemMeta().hasDisplayName() && helmet.getItemMeta().getDisplayName().equals(customHelmetName);
+        boolean hasCustomChestplate = chestplate != null && chestplate.hasItemMeta() && chestplate.getItemMeta().hasDisplayName() && chestplate.getItemMeta().getDisplayName().equals(customChestplateName);
+        boolean hasCustomLeggings = leggings != null && leggings.hasItemMeta() && leggings.getItemMeta().hasDisplayName() && leggings.getItemMeta().getDisplayName().equals(customLeggingsName);
+        boolean hasCustomBoots = boots != null && boots.hasItemMeta() && boots.getItemMeta().hasDisplayName() && boots.getItemMeta().getDisplayName().equals(customBootsName);
+
+        // Return true if all armor pieces have the expected custom names
+        return hasCustomHelmet && hasCustomChestplate && hasCustomLeggings && hasCustomBoots;
+    }
+    private boolean checkLeatherArmorName(Player player) {
+        ItemStack helmet = player.getInventory().getHelmet();
+        ItemStack chestplate = player.getInventory().getChestplate();
+        ItemStack leggings = player.getInventory().getLeggings();
+        ItemStack boots = player.getInventory().getBoots();
+
+        String customHelmetName = "\uE7FE§6Starter Helmet§r\uE7FE";
+        String customChestplateName = "\uE7FE§6Starter Chestplate§r\uE7FE";
+        String customLeggingsName = "\uE7FE§6Starter Leggings§r\uE7FE";
+        String customBootsName = "\uE7FE§6Starter Boots§r\uE7FE";
+//        getLogger().info(helmet.getItemMeta().getDisplayName());
+//        getLogger().info(chestplate.getItemMeta().getDisplayName());
+//        getLogger().info(leggings.getItemMeta().getDisplayName());
+//        getLogger().info(boots.getItemMeta().getDisplayName());
+//        getLogger().info("custom name" + customHelmetName);
         // Check if all armor pieces have the expected custom names
         boolean hasCustomHelmet = helmet != null && helmet.hasItemMeta() && helmet.getItemMeta().hasDisplayName() && helmet.getItemMeta().getDisplayName().equals(customHelmetName);
         boolean hasCustomChestplate = chestplate != null && chestplate.hasItemMeta() && chestplate.getItemMeta().hasDisplayName() && chestplate.getItemMeta().getDisplayName().equals(customChestplateName);
