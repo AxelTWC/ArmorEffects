@@ -1,6 +1,6 @@
 # ArmorEffects Humblex Spigot Plugin
 - A Custom Simple Spigot Plugin for the Official Humblex Minecraft Server
-- Aimed to also made accessible for open source
+- Aimed to also made accessible for open source and for spigotmc community.
   
 ## IP:
 Coming Soon. (Release Late Aug to Early Sept 2023)
